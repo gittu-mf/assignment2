@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="product" id="product1">
+            <img src="img/img 9.jpg" alt="Product 1">
+            <h2>Helm-1</h2>
+            <p>Price: $200</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <label for="quantity1">Quantity:</label>
+            <input type="number" id="quantity1" value="0" min="0" onchange="calculatePrice(1)">
+            <p>Total: $<span id="total1">0</span></p>
+        </div>
+
+        <div class="product" id="product2">
+            <img src="img/img2.jpg" alt="Product 2">
+            <h2>Helm-2</h2>
+            <p>Price: $100</p>
+            <p>Description: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <label for="quantity2">Quantity:</label>
+            <input type="number" id="quantity2" value="0" min="0" onchange="calculatePrice(2)">
+            <p>Total: $<span id="total2">0</span></p>
+        </div>
+
+        <div class="product" id="product3">
+            <img src="img/img3.jpg" alt="Product 3">
+            <h2>Product 3</h2>
+            <p>Price: $230</p>
+            <p>Description: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <label for="quantity3">Quantity:</label>
+            <input type="number" id="quantity3" value="0" min="0" onchange="calculatePrice(3)">
+            <p>Total: $<span id="total3">0</span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculatePrice(productId) {
+            const price1 = 200;
+            const price2 = 100;
+            const price3 = 230;
+
+            const quantity = parseInt(document.getElementById(`quantity${productId}`).value);
+
+            let total = 0;
+            if (productId === 1) {
+                total = price1 * quantity;
+                document.getElementById("total1").textContent = total;
+            } else if (productId === 2) {
+                total = price2 * quantity;
+                document.getElementById("total2").textContent = total;
+            } else if (productId === 3) {
+                total = price3 * quantity;
+                document.getElementById("total3").textContent = total;
+            }
+        }
+    </script>
+</body>
+</html>
